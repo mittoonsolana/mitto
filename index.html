@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITTO - The Spirit of Solana</title>
+    <link rel="icon" type="image/png" href="mitto_logo_2.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Notice Popup -->
+    <div id="noticePopup" class="notice-popup">
+        <div class="notice-modal">
+            <div class="notice-header">
+                <span class="notice-emoji">⚠️</span>
+                <h3>Development Notice</h3>
+                <button class="notice-close" onclick="closeNoticePopup()">&times;</button>
+            </div>
+            <div class="notice-body">
+                <p>Some features might not be live right now. I am single-handedly working, so please wait.</p>
+            </div>
+            <div class="notice-footer">
+                <button class="notice-button" onclick="closeNoticePopup()">Got it!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="particles"></div>
+        <div class="gradient-orbs"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <img src="mitto_logo_2.png" alt="Mitto Logo" class="logo-img">
+                <span class="logo-text">MITTO</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#solana" class="nav-link">Solana</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="https://trade.padre.gg/rk/mittoonsol" class="nav-link padre-link" target="_blank" rel="noopener noreferrer">
+                    <img src="https://docs.padre.gg/~gitbook/image?url=https%3A%2F%2F3836151519-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FspUNoDItDjEtPNBtDZ0i%252Ficon%252F9He9pma7gE3V2E6pQ1y1%252FThumbnail.svg%3Falt%3Dmedia%26token%3Dabbd01fe-c0e0-4fea-b5b1-f905d9a3b93a&width=32&dpr=4&quality=100&sign=f24e021d&sv=2" alt="Padre Logo" class="padre-logo">
+                    <span class="padre-text-full">Trade on Padre</span>
+                    <span class="padre-text-short">Trade</span>
+                </a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Backdrop -->
+    <div class="nav-backdrop"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <!-- Follower Avatars Background -->
+        <div class="follower-avatars" id="followerAvatars"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">MITTO</span>
+                    <span class="title-subtitle">The Spirit of Solana</span>
+                </h1>
+                <p class="hero-description">
+                    Experience the future of meme culture on the fastest blockchain. 
+                    Join Mitto's adventure through the decentralized universe.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://x.com/i/communities/1983924537902162153" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <span>Explore Universe</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                    <button id="joinCommunityBtn" class="btn btn-secondary">
+                        <span>Join Community</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="mitto_on_chair.png" alt="Mitto Character" class="hero-image">
+                    <div class="image-glow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Mitto</h2>
+                <p class="section-subtitle">The Adventurous Crypto Mascot</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="story-card">
+                        <h3>The Origin Story</h3>
+                        <p>Born in the digital realm of Solana, Mitto is more than just a meme – he's a symbol of innovation, speed, and community spirit. This adventurous crypto mascot believes in the power of decentralization and the endless possibilities of Web3.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>Mission & Vision</h3>
+                        <p>Mitto's mission is to bridge the gap between meme culture and serious blockchain technology, making crypto accessible and fun for everyone while maintaining the core values of decentralization and community governance.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>Community First</h3>
+                        <p>Every decision, every meme, every innovation comes from the community. Mitto represents the collective spirit of Solana enthusiasts who believe in building a better, more inclusive financial future.</p>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100K+</div>
+                        <div class="stat-label">Community Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">NFT Collections</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1M+</div>
+                        <div class="stat-label">Memes Created</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solana Connection Section -->
+    <section id="solana" class="solana-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powered by Solana</h2>
+                <p class="section-subtitle">Lightning Fast, Community Driven</p>
+            </div>
+            <div class="solana-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <div class="icon-nft"></div>
+                    </div>
+                    <h3>NFT Ecosystem</h3>
+                    <p>Unique Mitto NFTs with utility, governance rights, and exclusive community access on Solana's efficient blockchain.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <div class="icon-meme"></div>
+                    </div>
+                    <h3>Meme Factory</h3>
+                    <p>Community-driven meme creation platform where holders can mint, trade, and showcase their Mitto-inspired content.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <div class="icon-defi"></div>
+                    </div>
+                    <h3>DeFi Integration</h3>
+                    <p>Stake, farm, and earn with Mitto tokens while contributing to the Solana ecosystem's growth and development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Community Section -->
+    <section id="community" class="community">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Join the Movement</h2>
+                <p class="section-subtitle">Connect with Fellow Solana Enthusiasts</p>
+            </div>
+            
+            <!-- Live X Stats Card removed as requested -->
+
+            <!-- Recent X Posts removed as requested -->
+            
+            <div class="community-links">
+                <a href="https://x.com/mittoonsol" target="_blank" rel="noopener noreferrer" class="social-link twitter">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </div>
+                    <span>Follow on X</span>
+                </a>
+                <a href="https://t.me/mittoonsol" target="_blank" rel="noopener noreferrer" class="social-link telegram">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                        </svg>
+                    </div>
+                    <span>Join Telegram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="mitto_logo_2.png" alt="Mitto Logo" class="footer-logo-img">
+                    <span class="footer-logo-text">MITTO</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#solana">Solana</a>
+                    <a href="#community">Community</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mitto – Powered by Solana</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
