@@ -996,3 +996,25 @@ style.textContent = `
 }
 `;
 document.head.appendChild(style);
+
+// Prevent images from being opened in new tabs and dragged
+document.addEventListener('DOMContentLoaded', function() {
+    const imgs = document.querySelectorAll('img');
+    imgs.forEach(img => {
+        // Disable dragging
+        img.setAttribute('draggable', 'false');
+        // Block right-click context menu on images
+        img.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        // If an image is wrapped in a link pointing directly to an image file, prevent open
+        img.addEventListener('click', function(e) {
+            const link = img.closest('a');
+            if (!link) return;
+            const href = link.getAttribute('href') || '';
+            if (/\.(png|jpe?g|gif|webp|svg)$/i.test(href)) {
+                e.preventDefault();
+            }
+        });
+    });
+});
