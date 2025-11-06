@@ -62,6 +62,84 @@ body {
     --shadow-glow: 0 0 40px rgba(20, 241, 149, 0.2);
 }
 
+/* Themed Loader Overlay */
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100000; /* above notice */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.loader-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.loader-inner {
+    position: relative;
+    background: var(--dark-surface);
+    border: 2px solid rgba(153, 69, 255, 0.35);
+    border-radius: 18px;
+    padding: 2rem 2.5rem;
+    box-shadow: var(--shadow-glow), 0 20px 60px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.loader-brand {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    box-shadow: 0 0 20px rgba(153, 69, 255, 0.35);
+}
+
+.loader-logo {
+    width: 32px;
+    height: 32px;
+}
+
+.loader-ring {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, rgba(153,69,255,0.25), rgba(20,241,149,0.6), rgba(0,212,255,0.25), rgba(153,69,255,0.25));
+    mask: radial-gradient(circle at center, transparent 42%, black 44%);
+    animation: spin 1.2s linear infinite;
+}
+
+.loader-pulse {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #00ff88;
+    border-radius: 50%;
+    top: 8px;
+    right: 8px;
+    animation: pulse 2s infinite;
+}
+
+.loader-caption {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 /* Notice Popup */
 .notice-popup {
     position: fixed;
@@ -641,7 +719,7 @@ img {
 
 .hero-image {
     width: 100%;
-    max-width: 400px;
+    max-width: 480px;
     height: auto;
     border-radius: 20px;
     filter: drop-shadow(0 0 30px rgba(153, 69, 255, 0.3));
@@ -1533,7 +1611,7 @@ section {
     }
 
     .hero-image {
-        max-width: 280px;
+        max-width: 320px;
         width: 100%;
     }
 
@@ -1695,7 +1773,7 @@ section {
     }
 
     .hero-image {
-        max-width: 240px;
+        max-width: 280px;
     }
 
     /* Sections */
@@ -1787,10 +1865,10 @@ section {
         font-size: 0.85rem;
     }
 
-    /* Utility Classes for Mobile */
-    .mobile-hidden {
-        display: none;
-    }
+/* Utility Classes for Mobile */
+.mobile-hidden {
+    display: none;
+}
 
     .mobile-center {
         text-align: center;
@@ -1799,4 +1877,60 @@ section {
     .mobile-full-width {
         width: 100%;
     }
+}
+
+/* Fire Effect for SolChat CTA */
+.fire-btn {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background: linear-gradient(var(--dark-card), var(--dark-card)) padding-box,
+                radial-gradient(circle at 30% 120%, rgba(255,140,0,0.9), rgba(255,69,0,0.8), rgba(229,46,113,0.6)) border-box;
+    box-shadow: 0 0 20px rgba(255, 120, 0, 0.25), 0 0 50px rgba(229, 46, 113, 0.15);
+    animation: fireFlicker 1.8s ease-in-out infinite;
+}
+
+.fire-btn .fire-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    color: #ffa94d;
+    filter: drop-shadow(0 0 6px rgba(255, 153, 0, 0.6));
+    animation: emberGlow 2.2s ease-in-out infinite;
+}
+
+.fire-btn::before,
+.fire-btn::after {
+    content: '';
+    position: absolute;
+    left: -10%;
+    right: -10%;
+    height: 60%;
+    bottom: -20%;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(255, 180, 0, 0.25), rgba(255, 90, 0, 0.05) 60%, transparent 70%);
+    mix-blend-mode: screen;
+}
+
+.fire-btn::after {
+    bottom: -25%;
+    filter: blur(6px);
+    animation: heatWaves 3s ease-in-out infinite;
+}
+
+@keyframes fireFlicker {
+    0%, 100% { box-shadow: 0 0 16px rgba(255, 140, 0, 0.25), 0 0 36px rgba(229, 46, 113, 0.15); transform: translateY(0); }
+    50% { box-shadow: 0 0 28px rgba(255, 140, 0, 0.45), 0 0 64px rgba(229, 46, 113, 0.25); transform: translateY(-1px); }
+}
+
+@keyframes emberGlow {
+    0%, 100% { color: #ffa94d; filter: drop-shadow(0 0 6px rgba(255, 153, 0, 0.6)); }
+    50% { color: #ff7a1a; filter: drop-shadow(0 0 10px rgba(255, 120, 0, 0.8)); }
+}
+
+@keyframes heatWaves {
+    0% { transform: translateY(0) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-6px) scale(1.03); opacity: 0.9; }
+    100% { transform: translateY(0) scale(1); opacity: 0.6; }
 }
