@@ -966,6 +966,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Notice Popup Functions
+function showNoticePopup() {
+    const popup = document.getElementById('noticePopup');
+    if (popup) {
+        popup.style.display = 'flex';
+        try {
+            localStorage.setItem('noticeLastShown', Date.now().toString());
+        } catch (_) { /* ignore storage errors */ }
+    }
+}
+
 function closeNoticePopup() {
     const popup = document.getElementById('noticePopup');
     if (popup) {
@@ -973,6 +983,9 @@ function closeNoticePopup() {
         setTimeout(() => {
             popup.style.display = 'none';
         }, 300);
+        try {
+            localStorage.setItem('noticeLastShown', Date.now().toString());
+        } catch (_) { /* ignore storage errors */ }
     }
 }
 
@@ -999,6 +1012,22 @@ document.head.appendChild(style);
 
 // Prevent images from being opened in new tabs and dragged
 document.addEventListener('DOMContentLoaded', function() {
+    // Conditional Notice Popup: show only on first visit or after 15 minutes
+    const popup = document.getElementById('noticePopup');
+    if (popup) {
+        const FIFTEEN_MIN = 15 * 60 * 1000;
+        let lastShown = 0;
+        try {
+            lastShown = Number(localStorage.getItem('noticeLastShown')) || 0;
+        } catch (_) { lastShown = 0; }
+        const now = Date.now();
+        if (!lastShown || (now - lastShown) >= FIFTEEN_MIN) {
+            showNoticePopup();
+        } else {
+            popup.style.display = 'none';
+        }
+    }
+
     const imgs = document.querySelectorAll('img');
     imgs.forEach(img => {
         // Disable dragging
